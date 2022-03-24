@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Brian Baldner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <style>
+        body {
+            background-color: #000;
+            font-family: 'Source Code Pro', monospace;
+            overflow: hidden;
+        }
+
+        .mrk {
+            font-size: 50px;
+            line-height: 0px;
+            color: #444;
+            white-space: pre-line;
+        }
+
+        .link {
+            font-size: 50px;
+            line-height: 0px;
+            color: rgb(255, 0, 0);
+            text-decoration: none;
+        }
+
+        a {
+            font-size: 50px;
+            line-height: 0px;
+            color: rgb(255, 0, 0);
+            text-decoration: none;
+        }
+
+        .corner {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: rgb(255, 230, 0);
+            z-index: 1;
+            line-height: 50px;
+            text-align: center;
+            font-size: 45px;
+            cursor: pointer;
+        }
+
+        .prompt {
+            position: absolute;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background-color: rgb(255, 230, 0);
+            z-index: 1;
+            line-height: 50px;
+            text-align: center;
+            display: none;
+
+        }
+
+        .fa {
+            padding: 5px;
+        }
+    </style>
+    <div class="corner" onclick="openPrompt()">?</div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Add font awesome icons -->
+    <div class="prompt" id="prompt">
+        <div class="corner" style="background-color: #000; color: rgb(255, 230, 0);" onclick="closePrompt()">X</div>
+        <img src="https://pbs.twimg.com/profile_images/1495231981004595202/YO-56li0_200x200.jpg" alt="Brian Baldner"
+            width="100" height="100" style="border-radius: 50%; margin-top: 10px;">
+        <br>
+        <a class="link" href="https://www.brianbaldner.com">Brian Baldner</a>
+        <p
+            style="font-size: 17px; line-height: 25px; padding-left: 20px; padding-right: 20px; margin-top: 0px; margin-bottom: 0px;">
+            Hello, my name is Brian Baldner. I am 16 and I enjoy making projects and learning new things. I am
+            knowledgeable in C# and Javascript. I started a website when I was 13, and used it to propel myself into
+            learning new languages. I hope to continue to learn new languages and technologies, and create new project
+            that make people happy.<br>This portfolio is designed based off of the <a style="font-size: 17px;"
+                href="https://mschf.xyz/">MSCHF</a> website.
+        </p>
+        <a href="https://www.instagram.com/brian.baldner/" class="fa fa-instagram"></a>
+        <a href="https://twitter.com/brianbaldner" class="fa fa-twitter"></a>
+        <a href="https://github.com/brianbaldner" class="fa fa-github"></a>
+    </div>
+
+    <p id="baselink" class="link"><a href="https://ultimate-games.github.io/">Ultimate Games</a></p>
+        <p id="que" class="mrk">???</p>
+        <p id="que" class="mrk">???</p>
+        <p id="que" class="mrk">???</p>
+        <p id="que" class="mrk">???</p>
+        <p id="que" class="mrk">???</p>
+        <p id="que" class="mrk">???</p>
+        <p id="que" class="mrk">???</p>
+        <p id="que" class="mrk">???</p>
+        <p id="que" class="mrk">???</p>
+        <p id="que" class="mrk">???</p>
+        <p id="que" class="mrk">???</p>
+        
+
+    <script>
+        let sites = {
+            'Crazy Cards': 'https://crazycards.brianbaldner.com/',
+            'Wordle 2': 'https://wordle2.brianbaldner.com/',
+            'NFLData.Net': 'https://github.com/brianbaldner/NFLData.net',
+            'ValAPI.Net': 'https://github.com/brianbaldner/ValAPI.Net',
+            'Havok Car': 'https://ultimate-games.github.io/games/havokcar/',
+        }
+        let height = window.innerHeight;
+
+
+        for (let k in sites) {
+            // Get the element
+            var elem = document.getElementById('baselink');
+
+            // Create a copy of it
+            var clone = elem.cloneNode(true);
+
+            clone.querySelector('a').href = sites[k];
+            clone.querySelector('a').innerText = k;
+            clone.id = k;
+            // Inject it into the DOM
+            elem.after(clone);
+        }
+
+        var t = setInterval(cursor, 1000);
+        function cursor() {
+            var name = Object.keys(sites)[0];
+            var elem = document.getElementById(name).querySelector('a');
+            const last = elem.innerHTML.charAt(elem.innerHTML.length - 1);
+            if (last == '_') {
+                elem.innerHTML = name;
+            }
+            else {
+                elem.innerHTML = name + '_';
+            }
+        }
+        
+        function openPrompt() {
+            document.getElementById('prompt').style.display = 'block';
+        }
+        function closePrompt() {
+            document.getElementById('prompt').style.display = 'none';
+        }
+    </script>
+
+</body>
+
+</html>
